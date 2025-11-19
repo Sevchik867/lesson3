@@ -54,15 +54,31 @@
 
         private static void inputNumbers(out double numberOne, out double numberTwo)
         {
-            Console.WriteLine("Введите первое число:");
-            numberOne = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите второе число:");
-            numberTwo = Convert.ToDouble(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine("Введите первое число: ");
+                bool tryParseTextOne = double.TryParse(Console.ReadLine(), out numberOne);
+                Console.WriteLine("Введите второе число: ");
+                bool tryParseTextTwo = double.TryParse(Console.ReadLine(), out numberTwo);
+                if (tryParseTextOne == true && tryParseTextTwo == true)
+                {
+                    break;
+                }
+                else Console.WriteLine("Неверный ввод.");
+            }
         }
         private static void inputNumbers(out double numberOne)
         {
-            Console.WriteLine("Введите первое число:");
-            numberOne = Convert.ToDouble(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine("Введите число: ");
+                bool tryParseTextOne = double.TryParse(Console.ReadLine(), out numberOne);
+                if (tryParseTextOne == true)
+                {
+                    break;
+                }
+                else Console.WriteLine("Неверный ввод.");
+            }
         }
     }
 }
